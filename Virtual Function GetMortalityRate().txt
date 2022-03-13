@@ -1,0 +1,85 @@
+#include<iostream>
+using namespace std;
+
+class Virus
+{
+    protected:
+    float l,d;
+    
+public:
+void getdim(){
+    cout<<"Enter the total cases and death record for this virus:"<<endl;
+        cin>>l>>d;
+    }
+	 virtual float GetMortalityRate()=0;
+};
+
+class CovidVirus:public Virus
+{
+
+public:
+
+	float GetMortalityRate()
+	{
+	 
+		return (d/l)*100;
+
+	}
+};
+class HivVirus:public Virus
+{
+
+public:
+
+	float GetMortalityRate()
+	{
+	 
+		return (d/l)*100;
+
+	}
+};
+class BirdFlue:public Virus
+{
+
+public:
+
+	float GetMortalityRate()
+	{
+	 
+		return (d/l)*100;
+
+	}
+};
+int main()
+{
+	CovidVirus obj1;
+	HivVirus obj2;
+	BirdFlue obj3;
+	int ch;
+	do{
+	    
+	cout<<"Enter 1 for CovidVirus"<<endl;
+		cout<<"Enter 2 for HivVirus"<<endl;
+			cout<<"Enter 3 for BirdFlue"<<endl;
+	
+	cin>>ch;
+	switch(ch){
+	case 1:
+	obj1.getdim();
+	cout<<"MortalityRate of CovidVirus is:"<<obj1.GetMortalityRate()<<"%"<<endl;
+	break;
+	
+	case 2:
+	obj2.getdim();
+	cout<<"MortalityRate of HivVirus is:"<<obj2.GetMortalityRate()<<"%"<<endl;
+	break;
+	case 3:
+	obj3.getdim();
+	cout<<"MortalityRate of BirdFlue is:"<<obj3.GetMortalityRate()<<"%"<<endl;
+	break;
+	default:
+	cout<<"Invalid Choice"<<endl;
+	} 
+	}
+	while(1);
+}
