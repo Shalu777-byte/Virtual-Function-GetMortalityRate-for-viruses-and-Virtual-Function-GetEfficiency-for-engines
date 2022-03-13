@@ -1,0 +1,121 @@
+#include<iostream>
+using namespace std;
+
+class Engine
+{
+    protected:
+    float ip,op;
+    
+public:
+void getdim(){
+    cout<<"Enter the input and output for the fuel for this Engine in KJ:"<<endl;
+        cin>>ip>>op;
+    }
+	 virtual float GetEfficiency()=0;
+};
+
+class InternalCombustineEngine:public Engine
+{
+
+public:
+
+	float GetEfficiency()
+	{
+	 
+	return op/ip;
+
+	}
+};
+class ExternalCombustineEngine:public Engine
+{
+
+public:
+
+	float GetEfficiency()
+	{
+	 
+	return op/ip;
+
+	}
+};
+class PetrolEngine:public InternalCombustineEngine
+{
+
+public:
+
+	float GetEfficiency()
+	{
+	 
+		return op/ip;
+
+	}
+};
+class DieselEngine:public InternalCombustineEngine
+{
+
+public:
+
+	float GetEfficiency()
+	{
+	 
+		return op/ip;
+
+	}
+};
+class SteamEngine:public ExternalCombustineEngine
+{
+
+public:
+
+	float GetEfficiency()
+	{
+	 
+		return op/ip;
+
+	}
+};
+
+int main()
+{
+	InternalCombustineEngine obj1;
+    ExternalCombustineEngine obj2;
+	PetrolEngine obj3;
+	DieselEngine obj4;
+	SteamEngine obj5;
+	int ch;
+	do{
+	    
+	cout<<"Enter 1 for InternalCombustineEngine"<<endl;
+		cout<<"Enter 2 for ExternalCombustineEngine"<<endl;
+			cout<<"Enter 3 for PetrolEngine"<<endl;
+             	cout<<"Enter 4 for DieselEngine"<<endl;
+             	   cout<<"Enter 5 for DieselEngine"<<endl;
+	cin>>ch;
+	switch(ch){
+	case 1:
+	obj1.getdim();
+	cout<<"Efficiency of InternalCombustineEngine is:"<<obj1.GetEfficiency()<<"%"<<endl;
+	break;
+	case 2:
+	obj2.getdim();
+	cout<<"Efficiency of ExternalCombustineEngine is:"<<obj2.GetEfficiency()<<"%"<<endl;
+	break;
+	case 3:
+	obj3.getdim();
+	cout<<"Efficiency of PetrolEngine is:"<<obj3.GetEfficiency()<<"%"<<endl;
+	break;
+	case 4:
+	obj4.getdim();
+	cout<<"Efficiency of DieselEngine is:"<<obj4.GetEfficiency()<<"%"<<endl;
+	break;
+	case 5:
+	obj5.getdim();
+	cout<<"Efficiency of SteamEngine is:"<<obj5.GetEfficiency()<<"%"<<endl;
+	break;
+
+	default:
+	cout<<"Invalid Choice"<<endl;
+	} 
+	}	while(1);
+	return 0;
+}
